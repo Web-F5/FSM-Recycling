@@ -22,10 +22,10 @@ export function Footer() {
                 alt="F.S.M. Recycling logo"
                 width={48}
                 height={48}
-                className="w-12 h-12 object-contain"
+                className="w-20 h-20 object-contain"
               />
               <span className="font-serif text-xl font-bold tracking-wide">
-                F.S.M. RECYCLING
+                F.S.M. RECYCLING AND DEMOLITION
               </span>
             </Link>
             <p className="text-stone-400 leading-relaxed mb-6">
