@@ -19,13 +19,22 @@ export function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    setSubmitted(true)
+
+    const res = await fetch("https://formspree.io/f/mdavzelg", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        name: `${formData.firstName} ${formData.lastName}`,
+        email: formData.email,
+        message: formData.message,
+      }),
+    })
+
     setIsSubmitting(false)
-    setFormData({ firstName: "", lastName: "", email: "", message: "" })
+    if (res.ok) {
+      setSubmitted(true)
+      setFormData({ firstName: "", lastName: "", email: "", message: "" })
+    }
   }
 
   return (
